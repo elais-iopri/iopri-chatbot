@@ -176,7 +176,7 @@ def load_llm_groq(KEY):
 # random_idx = random.randint(0, 4)
 # llm_groq = llms_groq[random_idx]
 
-llm_groq = load_llm_groq("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")
+llm_groq = load_llm_groq(st.secrets['groq_key']['groq_1'])
 
 @st.cache_resource
 def connect_to_google_sheets():
@@ -550,48 +550,48 @@ chain = (
     | StrOutputParser()
 )
 
-def store_text_area_value():
-    st.write(st.session_state['feedback'])
+# def store_text_area_value():
+#     st.write(st.session_state['feedback'])
 
 
-@st.dialog("Berikan Feedback")
-def send_feedback():
-    with st.form(key="feedback_input", enter_to_submit=False, clear_on_submit=False):
-        name = st.text_input("Nama")
-        feedback = st.text_area("Feedback")
+# @st.dialog("Berikan Feedback")
+# def send_feedback():
+#     with st.form(key="feedback_input", enter_to_submit=False, clear_on_submit=False):
+#         name = st.text_input("Nama")
+#         feedback = st.text_area("Feedback")
 
-        rating = [1, 2, 3, 4, 5]
-        selected_rating = st.feedback(options="stars")
+#         rating = [1, 2, 3, 4, 5]
+#         selected_rating = st.feedback(options="stars")
 
-        # print("INI FEEDBACK: ", feedback)
-        if st.form_submit_button("Submit"):
-            # Save data to Google Sheets
-            if selected_rating is not None:
-                save_feedback_to_google_sheets(name, rating[selected_rating], feedback, st.session_state.messages_product_knowledge)
-                st.success("Terimakasih atas umpan balik anda!")
-            else:
-                st.error("Tolong berikan rating 🙏")
-            print("INI FEEDBACK: ", feedback)
-            # st.write(feedback)
+#         # print("INI FEEDBACK: ", feedback)
+#         if st.form_submit_button("Submit"):
+#             # Save data to Google Sheets
+#             if selected_rating is not None:
+#                 save_feedback_to_google_sheets(name, rating[selected_rating], feedback, st.session_state.messages_product_knowledge)
+#                 st.success("Terimakasih atas umpan balik anda!")
+#             else:
+#                 st.error("Tolong berikan rating 🙏")
+#             print("INI FEEDBACK: ", feedback)
+#             # st.write(feedback)
 
 def stream_response(response, delay=0.02):
     for res in response:
         yield res
         time.sleep(delay)
 
-with st.expander("ChatBot PPKS", icon=":material/priority_high:", expanded=True):
-    st.markdown(body=
-"""
-El**Ai**s merupakan asisten virtual dari Pusat Penelitian Kelapa Sawit Indonesia (PPKS) yang dapat memberikan informasi seputar produk dan layanan yang ada di **Product Knowledge : 2023** PPKS.
+# with st.expander("ChatBot PPKS", icon=":material/priority_high:", expanded=True):
+#     st.markdown(body=
+# """
+# El**Ai**s merupakan asisten virtual dari Pusat Penelitian Kelapa Sawit Indonesia (PPKS) yang dapat memberikan informasi seputar produk dan layanan yang ada di **Product Knowledge : 2023** PPKS.
 
-**Aplikasi** ini sedang dalam pengembangan dan memerlukan **Feedback** dari pengguna.
+# **Aplikasi** ini sedang dalam pengembangan dan memerlukan **Feedback** dari pengguna.
 
-Silahkan coba untuk menanyakan sesuatu seputar Produk dan Layanan. Setelah itu, mohon untuk mengisi *Feedback Form* dibawah ini
-"""
-)
+# Silahkan coba untuk menanyakan sesuatu seputar Produk dan Layanan. Setelah itu, mohon untuk mengisi *Feedback Form* dibawah ini
+# """
+# )
 
-    if st.button("Feedback Form", type="primary"):
-        send_feedback()
+#     if st.button("Feedback Form", type="primary"):
+#         send_feedback()
 
 
 # Displaying all historical messages
