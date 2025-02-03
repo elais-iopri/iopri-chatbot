@@ -658,7 +658,4 @@ if prompt:
     except Exception as e:
         st.error("Sedang Terjadi Error, silahkan refresh laman dan coba lagi!")
 
-
-st.write(st.secrets['groq_key'])
-    
     
