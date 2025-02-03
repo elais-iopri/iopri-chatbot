@@ -592,7 +592,7 @@ def stream_response(response, delay=0.02):
 
 #     if st.button("Feedback Form", type="primary"):
 #         send_feedback()
-
+st.image("assets/logo_ppks.png", caption=None, width=50, use_column_width=None, clamp=False, channels="RGB", output_format="auto", use_container_width=False)
 st.header("Chat Bot PPKS", divider="gray")
 
 # Displaying all historical messages
