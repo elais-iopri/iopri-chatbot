@@ -593,6 +593,7 @@ def stream_response(response, delay=0.02):
 #     if st.button("Feedback Form", type="primary"):
 #         send_feedback()
 
+st.header("ChatBot PPKS", anchor=None, *, help=None, divider="gray")
 
 # Displaying all historical messages
 for message in st.session_state.messages_product_knowledge:
