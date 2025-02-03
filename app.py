@@ -130,7 +130,7 @@ def remove_lucene_chars_cust(text: str) -> str:
 @st.cache_resource
 def load_llm_groq(KEY):
     return ChatGroq(
-        model='llama-3.1-70b-versatile', #llama-3.1-70b-versatile, llama-3.1-8b-instant
+        model='llama-3.3-70b-versatile', #llama-3.1-70b-versatile, llama-3.1-8b-instant
         temperature=0,
         api_key=KEY
     )
