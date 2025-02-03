@@ -656,6 +656,6 @@ if prompt:
         st.session_state['total_time'] += total_time 
         # st.write(st.session_state['total_time'], st.session_state['idx_llm'], random_idx)
     except Exception as e:
-        st.error("Sedang Terjadi Error, silahkan refresh laman dan coba lagi!")
+        st.error(e)
 
     
