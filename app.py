@@ -176,7 +176,7 @@ def load_llm_groq(KEY):
 # random_idx = random.randint(0, 4)
 # llm_groq = llms_groq[random_idx]
 
-llm_groq = load_llm_groq(st.secrets['groq_key']['groq_1'])
+llm_groq = load_llm_groq("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")
 
 @st.cache_resource
 def connect_to_google_sheets():
